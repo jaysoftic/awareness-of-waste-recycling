@@ -1,4 +1,4 @@
-# Awareness of Waste Recycling :india:
+#Awareness of Waste Recycling :india:
 ![GIF](static/images/awareness_of_waste_recycling.png)
 
 #### The world generates at least 3.5 million tons of waste per day and this number is still increasing day by day that's why we need to aware about waste.
@@ -12,6 +12,11 @@
 - Here i have trained this model till **28 epochs** and i got **69.77%** accuracy.
 - Initially i had trained my model with **Inceptionv3** and it's gave me **90.34%** accuracy. But it was not accurate when i tested it on some images. But when i tested **VGG16** with **69.77%** accuracy it gives me accurate result.
 
+## Data Source
+- In this project i have collected and filtered data by my self from google images and dreamstime.com
+- I have uploaded my dataset on google drive. 
+- [click here to get dataset](https://drive.google.com/drive/folders/1P-0X6wDHyAZunuM8C2mO8wtLUyavrjjF?usp=sharing)
+
 ## Demo
 - I have deployed this on AWS Elastic Beanstalk platform
 Link: [http://wasterecycling-env.eba-xcpktyd2.us-east-2.elasticbeanstalk.com/](http://wasterecycling-env.eba-xcpktyd2.us-east-2.elasticbeanstalk.com/)
@@ -21,6 +26,23 @@ Link: [http://wasterecycling-env.eba-xcpktyd2.us-east-2.elasticbeanstalk.com/](h
 ## How to use
 - Click on image icon and upload image or if you are on mobile then click on camera icon and capture the waste and upload image.
 - Click on Classify your waste material button it will classify your waste and show you the result in details
+
+## Deployment
+#### Prepare a configuration file in main directory
+1. Create .ebextensions folder to your main directory
+2. Inside .ebextensions folder create a python.config file and write configration like [this](https://github.com/jaysoftic/awareness-of-waste-recycling/blob/master/.ebextensions/python.config)
+3. Create .ebignore file inside main directory
+
+#### Here's simple 3 step to create an application on Elastic Bean Stalk
+1. Open the Elastic Beanstalk console using this link: https://console.aws.amazon.com/elasticbeanstalk/home#/gettingStarted?applicationName=getting-started-app
+2. Enter your application name.
+3. Application tags are optional so just ignore it.
+4. For Platform, choose a python platform.
+5. For Application code choose Upload your code.
+6. Upload a zip file of your project.
+7. Click on create application button.
+
+- rest of things will take care by aws elastic bean stalk and you will get deployed link.
 
 ## Technologies Used
 <code><img height="30" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/python/python.png"></code>
