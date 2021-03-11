@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+  <br>
+	<div class="row">
+    <div class="col-md-6 classy_frame" style="padding-top: 0%;">
+      <center><h3 style="text-transform: capitalize;">Classify Your Waste Material</h3></center>
+      <img id="preview" src="{{ url_for('static', filename = 'images/reuse.png') }}" height="400px" width="100%" title = "client pic">
+      
+      <center>
+        <br>
+        <div class="image-upload">
+          <p style="color:wheat;" id="upload-web">Click the image upload icon below to upload a image.</p style="color:wheat;"">
+          <p style="color:wheat;" id="upload-mobile">Click the camera icon below to click a image.</p style="color:wheat;"">
+          
+          <label for="file">
+              <img id="upload-web" src="{{ url_for('static', filename = 'images/upload.png') }}"/>
+              <img id="upload-mobile" src="{{ url_for('static', filename = 'images/camera.png') }}"/>
+
+          </label>
+          <input type="file" name="file" id="file" onchange="previewImage()">
+        </div>
+
+        <br>
+        <button class="classify-button" onclick="classifyWaste()">Classify your waste material</button>
+      </center>
+      <br>
+    </div>
+
+    <div class="col-md-6 classy_frame" style="padding-top: 0%;" id="about">
+      <center><h3 style="text-transform: capitalize;">About</h3></center>
+      <h4>The world generates at least 3.5 million tons of waste per day and this number is still increasing day by day
+        that's why we need to aware about waste.<br><br>This app is help you to classify your waste with 9 different waste materials.
+        The recycling process of these waste materials are very hard and even it's very difficult to classify these 9 different waste
+        materials at recycling factory.<br><br>But what if every people make 9 trash for 9 different waste materials and put the waste to the 
+        particular trash according to that waste materials this would be much more better for cleaners and recycling factory to classify 
+        and recycle the waste. Everyone should do this because around 70% of waste are not recycled just because that was not classified.
+        <br><br><br><br><br><br>
+      </h4>
+    </div>
+  </div>
+
+	<div class="row" id="recycling-videos">
+    <br>
+    <hr>
+    <h3 id="video-title"></h3>
+    <div class="col-md-6 col-xs-6 classy_frame" style="padding-top: 0%; padding-bottom: 2%;">
+      <div class="embed-responsive embed-responsive-16by9"> 
+        <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/zO3jFKiqmHo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-6 classy_frame" style="padding-top: 0%; padding-bottom: 2%;">
+      <div class="embed-responsive embed-responsive-16by9"> 
+        <iframe id="video2" width="560" height="315" src="https://www.youtube.com/embed/I_fUpP-hq3A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+	<div class="row" id="what-if">
+    <br>
+    <hr>
+    <div class="col-md-6 col-xs-6 classy_frame" style="padding-top: 0%; padding-bottom: 2%;">
+      <center><h2 style="text-transform: capitalize;">What If We Stopped Recycling?</h2></center>
+
+      <div class="embed-responsive embed-responsive-16by9"> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8fFJOzXxB54" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-6 classy_frame" style="padding-top: 0%; padding-bottom: 2%;">
+      <center><h2 style="text-transform: capitalize;">What If We Created No Waste?</h2></center>
+
+      <div class="embed-responsive embed-responsive-16by9"> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wWbL7Mv2MFw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  
+	<div class="row" id="motivation">
+    <br>
+    <hr>
+    <h3>Why We Need Awareness</h3>
+    <div class="col-md-12 classy_frame" style="padding-top: 0%; padding-bottom: 2%;">
+      <div class="embed-responsive embed-responsive-16by9"> 
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/NhF4pXBNfq8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" id="quotes">
+    <br>
+    <hr>
+    <div class="col-md-6 col-xs-6 classy_frame" style="padding-top: 0%;">
+      <h4>They don’t dive into the swimming pool they dive into the mud. We can't even imagine how they would feel.</h4>
+    </div>
+    <div class="col-md-6 col-xs-6 classy_frame" style="padding-top: 0%;">
+      <h4>Your one step to waste recycling can make a cleaner’s life 10 minutes better.<br> &nbsp;</h4>
+    </div>
+  </div>
+</div>
+
+<script>
+  var imgData;
+  var loading = document.getElementById("loading");
+  var whatif = document.getElementById("what-if");
+  var motivation = document.getElementById("motivation");
+  var quotes = document.getElementById("quotes");
+  var recyclingvideos = document.getElementById("recycling-videos");
+
+  whatif.style.display = "none";
+  motivation.style.display = "none";
+  quotes.style.display = "none";
+  recyclingvideos.style.display = "none";
+  
+  function previewImage(){
+      
+    var file = document.getElementById("file").files;
+    if(file.length>0){
+      var fileName = file[0].name;
+      var allowed_extensions = new Array("jpeg", "jpg","png");
+      var file_extension = fileName.split('.').pop().toLowerCase(); 
+
+      if(allowed_extensions[0] == file_extension || allowed_extensions[1] == file_extension || allowed_extensions[2] == file_extension){
+        var imgObj = document.getElementById("preview");
+        var fileReader = new FileReader();
+
+        fileReader.onload = function(event){
+          document.getElementById("preview").setAttribute("src", event.target.result);
+          imgData = event.target.result;
+        };
+
+        fileReader.readAsDataURL(file[0]);
+      }
+      else{
+        document.getElementById("file").value = "";
+        document.getElementById("errorTitle").innerHTML = "Error - Only Image File Acceptable";
+        document.getElementById("errorMessage").innerHTML = "We only accept image with .jpeg .jpg or .png extensions.";
+        $("#errorPopup").modal("show");
+
+      }
+
+      
+    }
+  }
+
+  function classifyWaste(){
+    var file = document.getElementById("file").files;
+    if(file.length > 0){
+      loading.style.display = "block";
+      whatif.style.display = "block";
+      motivation.style.display = "block";
+      quotes.style.display = "block";
+      recyclingvideos.style.display = "block";
+
+      var form_data = new FormData();
+      form_data.append("file", document.getElementById("file").files[0]);
+      $.ajax({
+        url: 'classifywaste', // point to server-side URL
+        dataType: 'json', // what to expect back from server
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: form_data,
+        type: 'post',
+        success: function (data) {
+      
+          var predicted_value = data["predicted_value"];
+          var details = data["details"];
+          var video1 = data["video1"];
+          var video2 = data["video2"];
+
+          var about = document.getElementById("about");
+          var videotitle = document.getElementById("video-title");
+
+          about.innerHTML = "<center><h3>Waste classified as <b style='background-color: #0b2438;'>" + predicted_value + "</b> material</h3></center><h4>"+ details +"</h4>";
+          videotitle.innerHTML = "How "+ predicted_value +" Recycling Works?";
+
+          document.getElementById("video1").setAttribute("src", "https://www.youtube.com/embed/" + video1);
+          document.getElementById("video2").setAttribute("src", "https://www.youtube.com/embed/" + video2);
+
+          loading.style.display = "none";
+        }
+
+      });
+    }
+    else{
+      document.getElementById("errorTitle").innerHTML = "Error - Image not uploaded";
+      document.getElementById("errorMessage").innerHTML = "Please upload image of your waste material.";
+      $("#errorPopup").modal("show");
+    }
+  }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Awareness of Waste Recycling</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://use.fontawesome.com/305ad9003c.js"></script>
+
+  <style>
+.topnav {
+  overflow: hidden;
+  background-color: #232a34;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: wheat;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: wheat;
+  color: #232a34;
+}
+
+.topnav a.active {
+  background-color: wheat;
+  color: #232a34;
+}
+
+a {
+  cursor: alias;
+  color: wheat;
+  font-size: 120%;
+}
+
+h4{
+  color: wheat;
+  padding-top: 4%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  background-color: #232a34;
+}
+
+h3{
+  color: wheat;
+  background-color: #232a34;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  padding-left: 4px;
+}
+
+h2{
+  color: wheat;
+  background-color: #232a34;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  padding-left: 4px;
+}
+
+@media screen and (min-width: 601px) {
+  h4 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .image-upload img
+  {
+      width: 80px;
+      cursor: pointer;
+  }
+
+  #upload-web {
+    display: block;
+  }
+
+  #upload-mobile {
+    display: none;
+  }
+
+  .classify-button{
+    border: 2px;
+    background: none;
+    background-color: wheat;
+    color: #232a34;
+    font-size: large;
+    font-weight: bold;
+    width: 250px;
+    padding: 10px;
+    border-radius-top-right: 5px;
+    -moz-border-radius-top-right: 5px;
+    -webkit-border-radius-top-right: 5px;
+    border-radius-bottom-right: 5px;
+    -moz-border-radius-bottom-right: 5px;
+    -webkit-border-radius-bottom-right: 5px;
+    cursor:pointer;
+  }
+
+  #logo-img{
+    height: 140px;
+    width: 580px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  h4 {
+    font-size: 15px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 12px;
+  }
+
+  .image-upload img
+  {
+      width: 40px;
+      cursor: pointer;
+  }
+
+  #upload-web {
+    display: none;
+  }
+
+  #upload-mobile {
+    display: block;
+  }
+
+  .classify-button{
+    border: 0px;
+    background: none;
+    background-color: wheat;
+    color: #232a34;
+    font-size: small;
+    font-weight: bold;
+    width: 195px;
+    padding: 10px;
+    border-radius-top-right: 5px;
+    -moz-border-radius-top-right: 5px;
+    -webkit-border-radius-top-right: 5px;
+    border-radius-bottom-right: 5px;
+    -moz-border-radius-bottom-right: 5px;
+    -webkit-border-radius-bottom-right: 5px;
+    cursor:pointer;
+  }
+
+  #logo-img{
+    height: 120px;
+    width: 360px;
+  }
+
+}
+
+body{
+  background-color: black;
+  font-family: 'Times New Roman';
+}
+
+.classy_frame{
+  position: relative;
+  display: block;
+  border: solid;
+  border-color: wheat;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: none;
+  transform: scale(0.98) translateY(5px);
+  padding-top: 2%;
+  margin-bottom: 3%;
+
+  
+}
+.classy_frame:hover{
+  box-shadow: 0px 20px 30px wheat;
+  transition: all ease 0.4s;
+}
+
+hr {
+  border:6px solid #232a34;
+  border-radius: 5px;
+  background-color: wheat;
+  
+}
+
+.image-upload > input
+{
+    display: none;
+}
+
+#loading {
+    background: #000 url("{{ url_for('static', filename='images/loading.gif') }}") no-repeat center center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999999;
+    display: none;
+}
+
+</style>
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+{{ JSGlue.include() }} <!-- this is use for use url_for() from javascript -->
+</head>
+<body>
+
+  <nav class="navbar" style="background-color: #232a34;">
+    <div class="container">
+      <center>
+      <div>
+        <a href="/"><img id="logo-img" src="{{ url_for('static', filename = 'images/awareness_of_waste_recycling.png') }}"  alt="awareness of waste recycling" title = "awareness of waste recycling"></center></a>
+      </div>
+      </center>
+    </div>
+  </nav>
+  <br>
+
+  <!-- Modal -->
+  <div class="modal fade" id="errorPopup" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content classy_frame" style="background-color: #0b2438;">
+        <div class="modal-header">
+          <p class="modal-title" id="errorTitle" style="color:wheat;font-size:large;">Modal title</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color:wheat;font-size: large;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p style="color:wheat; font-size:medium;" id="errorMessage" style="color:wheat;"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: wheat; color: #0b2438;">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="loading">
+    <h3 style="text-align: center;">Wait a second your messy waste is classifying...</h3>
+  </div>
+
+  {% block content %}
+  {% endblock %}
+
+  <footer  style="background-color:#232a34">
+    <div class = "container">
+      <div class = "row">
+        <h4 style="text-align:center">Developed by</h4>
+        <hr>
+        <div class = "col-xs-6 col-sm-3">
+          <h4>
+            <a href="https://www.instagram.com/jaysoftic/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a>
+          </h4>
+          <h4>
+            <a href="https://www.linkedin.com/in/jaysoftic/" target="_blank"><i class="fa fa-linkedin-square"></i> Linkedin</a>
+          </h4>
+          <h4>
+            <a href="https://github.com/jaysoftic" target="_blank"><i class="fa fa-github"></i> Github</a>
+          </h4>
+          <h4>
+            <a href="https://www.kaggle.com/jaysoftic/" target="_blank"><i class="fab fa-kaggle"></i> Kaggle</a>
+          </h4>          
+        </div>
+        <div class = "col-xs-0 col-sm-6">
+
+        </div>
+        <div class = "col-xs-6 col-sm-3">
+          <img src="{{ url_for('static', filename = 'images/jaysoftic_brand.png') }}"  alt="jaysoftic" height="47%" width="70%" title = "jaysoftic" class = "classy_frame" style="padding: 1%;" align="right">
+        </div>
+      </div>
+      <br>
+      <div class="row" style="background-color: #0b2438;">
+        <p style="color:wheat; text-align: center;">Learn from Mistakes and Live for Today.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
