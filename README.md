@@ -1,4 +1,4 @@
-#Awareness of Waste Recycling :india:
+# Awareness of Waste Recycling :india:
 ![GIF](static/images/awareness_of_waste_recycling.png)
 
 #### The world generates at least 3.5 million tons of waste per day and this number is still increasing day by day that's why we need to aware about waste.
