@@ -33,7 +33,7 @@ Link: [http://wasterecycling-env.eba-xcpktyd2.us-east-2.elasticbeanstalk.com/](h
 2. Inside .ebextensions folder create a python.config file and write configration like [this](https://github.com/jaysoftic/awareness-of-waste-recycling/blob/master/.ebextensions/python.config)
 3. Create .ebignore file inside main directory
 
-#### Here's simple 3 step to create an application on Elastic Bean Stalk
+#### Here's simple steps to create an application on Elastic Bean Stalk
 1. Open the Elastic Beanstalk console using this link: https://console.aws.amazon.com/elasticbeanstalk/home#/gettingStarted?applicationName=getting-started-app
 2. Enter your application name.
 3. Application tags are optional so just ignore it.
