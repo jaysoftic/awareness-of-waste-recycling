@@ -58,7 +58,7 @@ Link: [http://wasterecycling-env.eba-xcpktyd2.us-east-2.elasticbeanstalk.com/](h
 <code><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/1/11/TensorFlowLogo.svg"></code>
 
 ## Motivation
-- My motivation watch it [here](https://www.youtube.com/watch?v=NhF4pXBNfq8)
+- My motivation watch is [here](https://www.youtube.com/watch?v=NhF4pXBNfq8)
 
 ## Team
 [![Jay Soni](https://avatars3.githubusercontent.com/u/49163967?s=400&u=be22bbe1409ff51991b04026f038c1373174a02a&v=4)](https://in.linkedin.com/in/jaysoftic) |
