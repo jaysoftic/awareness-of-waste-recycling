@@ -37,7 +37,7 @@ Link: [http://wasterecycling-env.eba-xcpktyd2.us-east-2.elasticbeanstalk.com/](h
 1. Open the Elastic Beanstalk console using this link: https://console.aws.amazon.com/elasticbeanstalk/home#/gettingStarted?applicationName=getting-started-app
 2. Enter your application name.
 3. Application tags are optional so just ignore it.
-4. For Platform, choose a python platform.
+4. For Platform, choose a python platform (python version 3.9).
 5. For Application code choose Upload your code.
 6. Upload a zip file of your project.
 7. Click on create application button.
